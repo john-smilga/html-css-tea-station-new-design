@@ -122,8 +122,12 @@ p {
   background: var(--clr-grey-10);
   z-index: 2;
   transition: var(--transition);
-  transform: translate(-100%);
   box-shadow: 2px 0 2px rgba(0, 0, 0, 0.2);
+  /* hide navbar */
+  transform: translate(-100%);
+}
+.showNav {
+  transform: translateX(0);
 }
 .navbar-header {
   text-align: right;
@@ -157,9 +161,7 @@ p {
   padding-left: 1.5rem;
   border-left: 0.25rem solid var(--clr-primary);
 }
-.showNav {
-  transform: translateX(0);
-}
+
 @media screen and (min-width: 768px) {
   .navbar {
     width: 30vw;
@@ -223,8 +225,20 @@ p {
   outline-offset: 0.25rem;
   font-size: 1.25rem;
   padding: 1rem 1.75rem;
+  animation: show 5s linear 1;
 }
 /* animation */
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 @keyframes slideFromRight {
   0% {
     transform: translateX(1000px);
@@ -388,12 +402,12 @@ p {
 .products-inventory {
   padding: 2rem 0;
 }
-.product {
-  margin-bottom: 2rem;
-}
 .product-text {
   color: var(--clr-grey-5);
   max-width: 26rem;
+}
+.product {
+  margin-bottom: 2rem;
 }
 
 .product-img {
@@ -569,13 +583,6 @@ p {
   background: var(--clr-primary);
   border-bottom-left-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
-  border: none;
-  text-transform: uppercase;
-  letter-spacing: var(--spacing);
-  color: var(--clr-white);
-  transition: var(--transition);
-  cursor: pointer;
-  font-weight: bold;
 }
 .submit-btn:hover {
   background: var(--clr-primary-light);
